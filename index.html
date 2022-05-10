@@ -3,6 +3,12 @@
 	<head>
 		<script src="./jquery-3.4.1.slim.min.js"></script>
 		<script type="text/javascript" src="./app.js"></script>
+		<script>
+			function loadWindow(){
+				show('welcome');
+			}
+			window.addEventListener("load", loadWindow, false);
+		</script>
 	</head>
 
 	<body>
@@ -14,6 +20,30 @@
 			<label for="lblTime">TIME:</label>
 			<input id="lblTime" type="text" />
 		</div>
+
+		<div id="welcome">
+			welcome
+			<button onclick="show('signUp')">signUp</button>
+			<button onclick="show('login')">login</button>
+		</div>
+
+		<div id="signUp">
+			signUp
+		</div>
+
+		<div id="login">
+			login
+			<button onclick="show('game')">loginToGame</button>
+		</div>
+
+		<div id="settings">
+			settings
+		</div>
+
+		<div id="about">
+			about
+		</div>
+
 		<div id="game">
 			<canvas id="canvas" height="600" width="600"></canvas>
 		</div>

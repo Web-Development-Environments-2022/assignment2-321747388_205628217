@@ -170,3 +170,16 @@ function UpdatePosition() {
 		Draw();
 	}
 }
+
+  function show(x) {
+	document.getElementById("welcome").style.display = "none";
+	document.getElementById("signUp").style.display = "none";
+	document.getElementById("login").style.display = "none";
+	document.getElementById("settings").style.display = "none";
+	document.getElementById("about").style.display = "none";
+	document.getElementById("game").style.display = "none";
+
+	document.getElementById(x).style.display = "block";
+  }
+
+
