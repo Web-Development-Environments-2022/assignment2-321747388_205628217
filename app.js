@@ -185,14 +185,5 @@ function about() {
 	document.getElementById("about").showModal();
 }
 
-document.addEventListener('keyup', function (event) {
-	if ( event.keyCode == 27 )   {
-		document.getElementById("about").close();
-	}
-  })
 
-document.addEventListener("click", function (event){
-	if (event.target === document.getElementById("about")) {
-		document.getElementById("about").close();
-	}
-})
+
