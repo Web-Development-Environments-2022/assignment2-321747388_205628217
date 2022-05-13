@@ -8,7 +8,7 @@
 		<script type="text/javascript" src="./app.js"></script>
 		<script>
 			function loadWindow(){
-				showScrean('welcome');
+				showScreen('welcome');
 			}
 			window.addEventListener("load", loadWindow, false);
 		</script>
@@ -21,9 +21,9 @@
 		</div>
 
 		<div id="menu">
-			<a href='#' onclick="showScrean('welcome')">Welcome</a> | 
-			<a href='#' onclick="showScrean('signUp')">Sign Up</a> | 
-			<a href='#' onclick="showScrean('login')">Log In</a> | 
+			<a href='#' onclick="showScreen('welcome')">Welcome</a> | 
+			<a href='#' onclick="showScreen('signUp')">Sign Up</a> | 
+			<a href='#' onclick="showScreen('login')">Log In</a> | 
 			<a href='#' onclick="about()">About</a> | 
 		</div>
 
@@ -38,8 +38,8 @@
 
 		<div id="welcome">
 			welcome
-			<button onclick="showScrean('signUp')">signUp</button>
-			<button onclick="showScrean('login')">login</button>
+			<button onclick="showScreen('signUp')">signUp</button>
+			<button onclick="showScreen('login')">login</button>
 		</div>
 
 		<div id="signUp">
@@ -48,7 +48,7 @@
 
 		<div id="login">
 			login
-			<button onclick="showScrean('game')">loginToGame</button>
+			<button onclick="showScreen('game')">loginToGame</button>
 		</div>
 
 		<div id="settings">

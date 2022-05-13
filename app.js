@@ -171,7 +171,7 @@ function UpdatePosition() {
 	}
 }
 
-function showScrean(x) {
+function showScreen(x) {
 	document.getElementById("welcome").style.display = "none";
 	document.getElementById("signUp").style.display = "none";
 	document.getElementById("login").style.display = "none";
