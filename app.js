@@ -171,15 +171,28 @@ function UpdatePosition() {
 	}
 }
 
-  function show(x) {
+function showScrean(x) {
 	document.getElementById("welcome").style.display = "none";
 	document.getElementById("signUp").style.display = "none";
 	document.getElementById("login").style.display = "none";
 	document.getElementById("settings").style.display = "none";
-	document.getElementById("about").style.display = "none";
 	document.getElementById("game").style.display = "none";
 
 	document.getElementById(x).style.display = "block";
-  }
+}
 
+function about() {
+	document.getElementById("about").showModal();
+}
 
+document.addEventListener('keyup', function (event) {
+	if ( event.keyCode == 27 )   {
+		document.getElementById("about").close();
+	}
+  })
+
+document.addEventListener("click", function (event){
+	if (event.target === document.getElementById("about")) {
+		document.getElementById("about").close();
+	}
+})
