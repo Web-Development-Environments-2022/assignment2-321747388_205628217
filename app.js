@@ -21,6 +21,15 @@ var color_15;
 var color_25;
 var game_time;
 var monsters_amount;
+//data base
+const db = 	[
+	{
+		userName: "k",
+		password: "k"
+	}
+]
+
+
 
 $(document).ready(function() {
 	context = canvas.getContext("2d");
