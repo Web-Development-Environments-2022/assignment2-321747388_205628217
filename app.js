@@ -8,10 +8,12 @@ var time_elapsed;
 var interval;
 
 //data base
-const db = 	{
-		"k" : "k"
-}
-
+const db = 	[
+	{
+		userName: "k",
+		password: "k"
+	}
+]
 
 
 
@@ -192,92 +194,3 @@ function showScreen(x) {
 function about() {
 	document.getElementById("about").showModal();
 }
-
-//sign up form
-$(document).ready(function(){
-	$("#signUpForm").validate({
-	  	rules: {
-			userName:{
-				required: true,
-				freeUserName: true
-			},
-
-			psw:{
-				required: true,
-				minlength: 6,
-				checkPsw: true
-			},
-
-			firstName:{
-				required: true,
-				lettersOnly: true
-			},
-			
-			lastName:{
-				required: true,
-				lettersOnly: true
-			},
-
-			email: {
-			required: true,
-			email: true
-			},
-
-			birthday: {
-			required: true
-			}
-		},
-
-	 	messages :{
-			userName:{
-				freeUserName:"This user name is taken, please choose a new one."
-			}, 
-
-			psw:{
-				checkPsw:"Password must include letters and digits."
-			},
-			
-			firstName:{
-				lettersOnly: "First name must contain letters only."
-			}, 
-
-			lastName:{
-				lettersOnly: "Last name must contain letters only."
-			}
-	  	},
-
-		//on submit
-		submitHandler: function() {
-		let userName = document.getElementById("userName").value;
-		let psw = document.getElementById("psw").value;
-		newUser = {userName: userName, psw: psw}
-		db.push({
-			key: userName,
-			value: psw
-		});
-		}
-	}),
-	//methods
-	// check if password is valid
-	$.validator.addMethod("checkPsw", function (value) {
-		if (!/[a-zA-Z]/.test(value)) {
-			return false;
-		}
-		else if (!/[0-9]/.test(value)) {
-			return false;
-		}
-		return true	
-	}),
-	// check if name contains letters only
-	$.validator.addMethod("lettersOnly", function (value) {
-		return /^[a-z]+$/i.test(value)	
-	})
-	// check if the user name is available
-	$.validator.addMethod("freeUserName", function (value) {
-		for (var userName in db){
-			if (value == userName)
-				return false;
-		}	
-		return true;
-	})
-})

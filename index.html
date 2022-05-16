@@ -6,6 +6,8 @@
 		<link rel="stylesheet" type="text/css" href="style.css" />
 		<script src="./jquery-3.4.1.slim.min.js"></script>
 		<script type="text/javascript" src="./app.js"></script>
+		<script type="text/javascript" src="./signUp.js"></script>
+		<script type="text/javascript" src="./login.js"></script>
 		<script>
 			function loadWindow(){
 				showScreen('welcome');
@@ -54,23 +56,23 @@
 				<h2>SIGN UP</h2>
 				<hr>
 				<label for="userName"><b>User Name</b></label>
-				<input type="text" placeholder="Enter User Name" name="userName" required>
+				<input type="text" placeholder="Enter User Name" id="userName" name="userName" required>
 				<br>
 				<br>
-				<label for="psw"><b>Password</b></label>
-				<input type="password" placeholder="Enter Password" name="psw" required>
+				<label for="password"><b>Password</b></label>
+				<input type="password" placeholder="Enter Password" id="password" name="password" required>
 				<br>
 				<br>
 				<label for="firstName"><b>First Name</b></label>
-				<input type="text" placeholder="Enter First Name" name="firstName" required>
+				<input type="text" placeholder="Enter First Name" id="firstName" name="firstName" required>
 				<br>
 				<br>
 				<label for="lastName"><b>Last Name</b></label>
-				<input type="text" placeholder="Enter Last Name" name="lastName" required>
+				<input type="text" placeholder="Enter Last Name" id="lastName" name="lastName" required>
 				<br>
 				<br>
 				<label for="email"><b>Email</b></label>
-				<input type="text" placeholder="Enter Email" name="email" required>
+				<input type="text" placeholder="Enter Email" id="email" name="email" required>
 				<br>
 				<br>
 				<label for="birthday"><b>Date of Birth</b></label>
@@ -79,14 +81,28 @@
 				<br>
 				<div class="clearfix">
 				<button type="reset" class="resetbtn">Reset</button>
-				<button type="submit" class="signupbtn">Sign Up</button>
+				<input type="submit" class="signupbtn" value="Sign Up">
 				</div>
 			</form>
 		</div>
 
 		<div id="login">
-			login
-			<button onclick="showScreen('game')">loginToGame</button>
+			<form id="logInForm">
+				<h2>Log In</h2>
+				<hr>
+				<label for="loginUserName"><b>User Name</b></label>
+				<input type="text" placeholder="Your User Name" id="loginUserName" name="loginUserName" required>
+				<br>
+				<br>
+				<label for="loginPassword"><b>Password</b></label>
+				<input type="password" placeholder="Your Password" id="loginPassword" name="loginPassword" required>
+				<br>
+				<br>
+				<div class="clearfix">
+				<button type="reset" class="loginResetBtn">Reset</button>
+				<button type="button" onclick="logIn()" class="logInBtn">Log In</button>
+				</div>
+			</form>
 		</div>
 
 		<div id="settings">
