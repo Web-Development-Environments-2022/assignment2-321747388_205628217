@@ -3,10 +3,8 @@ function logIn(){
     var $userInput = $('#logInForm :input');
     var userInputValues = {};
     $userInput.each(function() {
-        userInputValues[this.name] = $(this).val();
+            userInputValues[this.name] = $(this).val();
     });
-	alert(userInputValues["loginUserName"]);
-	alert(userInputValues["loginPassword"]);
     // if user exists and password is correct
     var validUser = validateUser(userInputValues["loginUserName"], userInputValues["loginPassword"]);
     if (validUser == true){

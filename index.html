@@ -2,12 +2,18 @@
 <html>
 	<head>
 		<title>PACMAN</title>
-		<link rel="icon" href="media/pacIcon.png">
+		<link rel="icon" href="media/header-logo.png">
 		<link rel="stylesheet" type="text/css" href="style.css" />
 		<script src="./jquery-3.4.1.slim.min.js"></script>
 		<script type="text/javascript" src="./app.js"></script>
 		<script type="text/javascript" src="./signUp.js"></script>
 		<script type="text/javascript" src="./login.js"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
 		<script>
 			function loadWindow(){
 				showScreen('welcome');
@@ -17,83 +23,81 @@
 	</head>
 
 	<body>
-
 		<!--include jquery for validation-->
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
 		
-		<header>
-			<h1>PACMAN</h1>
-			<h5>By Ariel Perelman & Diana Prochorov</h5>
-		</header>
-
-
+		
 
 		<div id="menu">
-			<a href='#' onclick="showScreen('welcome')">Welcome</a> | 
-			<a href='#' onclick="showScreen('signUp')">Sign Up</a> | 
-			<a href='#' onclick="showScreen('login')">Log In</a> | 
-			<a href='#' onclick="about()">About</a> | 
+			<img id="logo" src="media/header-logo.png" width="24" height="24">
+			<a href='#' onclick="showScreen('welcome')">Welcome</a>
+			<a href='#' onclick="showScreen('signUp')">Sign Up</a>
+			<a href='#' onclick="showScreen('login')">Log In</a>
+			<a href='#' onclick="about()">About</a> 
 		</div>
 
 		<div id="welcome">
-			welcome
-			<button onclick="showScreen('signUp')">signUp</button>
-			<button onclick="showScreen('login')">login</button>
+			<button class="button-56" onclick="showScreen('signUp')">Sign Up</button>
+			<button class="button-56" onclick="showScreen('login')">Log In</button>
 		</div>
 
 		<div id="signUp">
-			<form id="signUpForm">
-				<h2>SIGN UP</h2>
-				<hr>
-				<label for="userName"><b>User Name</b></label>
-				<input type="text" placeholder="Enter User Name" id="userName" name="userName" required>
+			<div class="container" id="signUpContainer">
+				<h2>SIGN UP & START PLAYING</h2>
 				<br>
-				<br>
-				<label for="password"><b>Password</b></label>
-				<input type="password" placeholder="Enter Password" id="password" name="password" required>
-				<br>
-				<br>
-				<label for="firstName"><b>First Name</b></label>
-				<input type="text" placeholder="Enter First Name" id="firstName" name="firstName" required>
-				<br>
-				<br>
-				<label for="lastName"><b>Last Name</b></label>
-				<input type="text" placeholder="Enter Last Name" id="lastName" name="lastName" required>
-				<br>
-				<br>
-				<label for="email"><b>Email</b></label>
-				<input type="text" placeholder="Enter Email" id="email" name="email" required>
-				<br>
-				<br>
-				<label for="birthday"><b>Date of Birth</b></label>
-				<input type="date" id="birthday" name="trip-start" value="2000-01-01">
-				<br>
-				<br>
-				<div class="clearfix">
-				<button type="reset" class="resetbtn">Reset</button>
-				<input type="submit" class="signupbtn" value="Sign Up">
-				</div>
-			</form>
+				<form id="signUpForm">
+					<label for="userName"><b>User Name: </b></label>
+					<input type="text" placeholder="Enter User Name" id="userName" name="userName" required>
+					<br>
+					<br>
+					<label for="password"><b>Password: </b></label>
+					<input type="password" placeholder="Enter Password" id="password" name="password" required>
+					<br>
+					<br>
+					<label for="firstName"><b>First Name: </b></label>
+					<input type="text" placeholder="Enter First Name" id="firstName" name="firstName" required>
+					<br>
+					<br>
+					<label for="lastName"><b>Last Name: </b></label>
+					<input type="text" placeholder="Enter Last Name" id="lastName" name="lastName" required>
+					<br>
+					<br>
+					<label for="email"><b>Email: </b></label>
+					<input type="text" placeholder="Enter Email" id="email" name="email" required>
+					<br>
+					<br>
+					<label for="birthday"><b>Date of Birth: </b></label>
+					<input type="date" id="birthday" name="trip-start" value="2000-01-01">
+					<br>
+					<br>
+					<div class="clearfix">
+					<button type="reset" class="resetbtn">Reset</button>
+					<input type="submit" class="signupbtn" value="Sign Up">
+					</div>
+				</form>
+			</div>
 		</div>
 
 		<div id="login">
-			<form id="logInForm">
+			<div class="container" id="signUpContainer">
 				<h2>Log In</h2>
-				<hr>
-				<label for="loginUserName"><b>User Name</b></label>
-				<input type="text" placeholder="Your User Name" id="loginUserName" name="loginUserName" required>
 				<br>
-				<br>
-				<label for="loginPassword"><b>Password</b></label>
-				<input type="password" placeholder="Your Password" id="loginPassword" name="loginPassword" required>
-				<br>
-				<br>
-				<div class="clearfix">
-				<button type="reset" class="loginResetBtn">Reset</button>
-				<button type="button" onclick="logIn()" class="logInBtn">Log In</button>
-				</div>
-			</form>
+				<form id="logInForm">
+					<label for="loginUserName"><b>User Name: </b></label>
+					<input type="text" placeholder="Your User Name" id="loginUserName" name="loginUserName" required>
+					<br>
+					<br>
+					<label for="loginPassword"><b>Password: </b></label>
+					<input type="password" placeholder="Your Password" id="loginPassword" name="loginPassword" required>
+					<br>
+					<br>
+					<div class="clearfix">
+					<button type="reset" class="loginResetBtn">Reset</button>
+					<button type="button" onclick="logIn()" class="logInBtn">Log In</button>
+					</div>
+				</form>
+			</div>
 		</div>
 
 		<div id="settings">
@@ -136,9 +140,9 @@
 		</div>
 
 		<dialog id="about" class="modal">
-			<p>About</p>
 			<form method="dialog">
 			  <button class="close">&times;</button>
+			  <p>About</p>
 			</form>
 		</dialog>
 
@@ -155,5 +159,15 @@
 
 			<canvas id="canvas" height="600" width="600"></canvas>
 		</div>
+		<footer id="footer">
+			<img id="ghostGIF" src="https://66.media.tumblr.com/tumblr_mauaez2COG1rfjowdo1_500.gif" height="18" width="60" frameBorder="0"></iframe>
+			<span id="contactInfo"> PACAMAN by 
+				<a href="mailto:arielper@bgu.ac.il">Ariel Perelman</a> & <a href="mailto:dianap@bgu.ac.il">Diana Prochorov</a>
+			</span>
+		</footer>
+	</body>
+</html>
+
+		</footer>
 	</body>
 </html>
