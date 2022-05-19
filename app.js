@@ -32,6 +32,10 @@ var monster_1 = new Object();
 var monster_2 = new Object();
 var monster_3 = new Object();
 var monster_4 = new Object();
+var monster_1_img = new Image();
+var monster_2_img = new Image();
+var monster_3_img = new Image();
+var monster_4_img = new Image();
 var monster_board;
 var monster_list;
 var monster_interval;
@@ -52,6 +56,10 @@ const db = 	[
 
 $(document).ready(function() {
 	context = canvas.getContext("2d");
+	monster_1_img.src = 'media/blue_ghost.png';
+	monster_2_img.src = 'media/green_ghost.png';
+	monster_3_img.src = 'media/pink_ghost.png';
+	monster_4_img.src = 'media/purple_ghost.png';
 	//Start();
 });
 
@@ -111,25 +119,25 @@ function Start() {
 	//monster_board = board;
 	monster_list = new Array();
 	if (monsters_amount >= 1) {
-		monster_board[1][1] = 10;
+		monster_board[1][1] = 11;
 		monster_1.i = 1;
 		monster_1.j = 1;
 		monster_list.push(monster_1);
 	}
 	if (monsters_amount >= 2) {
-		monster_board[17][19] = 10;
+		monster_board[17][19] = 12;
 		monster_2.i = 17;
 		monster_2.j = 19;
 		monster_list.push(monster_2);
 	}
 	if (monsters_amount >= 3) {
-		monster_board[17][1] = 10;
+		monster_board[17][1] = 13;
 		monster_3.i = 17;
 		monster_3.j = 1;
 		monster_list.push(monster_3);
 	}
 	if (monsters_amount == 4) {
-		monster_board[1][19] = 10;
+		monster_board[1][19] = 14;
 		monster_4.i = 1;
 		monster_4.j = 19;
 		monster_list.push(monster_4);
@@ -261,12 +269,15 @@ function Draw() {
 				context.fillStyle = "blue"; //color
 				context.fill();
 			}
-			if(monster_board[i][j] == 10){
-				context.beginPath();
-				context.rect(i*height, j*width, height, width);
-				context.fillStyle = "red"; //color
-				context.fill();
-			}else if(monster_board[i][j] == 50){
+			if(monster_board[i][j] == 11){
+				context.drawImage(monster_1_img,i*height, j*width, height, width);
+			} else if(monster_board[i][j] == 12){
+				context.drawImage(monster_2_img,i*height, j*width, height, width);
+			} else if(monster_board[i][j] == 13){
+				context.drawImage(monster_3_img,i*height, j*width, height, width);
+			}  else if(monster_board[i][j] == 14){
+				context.drawImage(monster_4_img,i*height, j*width, height, width);
+			} else if(monster_board[i][j] == 50){
 				context.beginPath();
 				context.rect(i*height, j*width, height, width);
 				context.fillStyle = "black"; //color
@@ -364,7 +375,7 @@ function UpdateScore() {
 	if (board[shape.i][shape.j] == 3) {
 		time_left += 10;
 	}
-	if (monster_board[shape.i][shape.j] == 10) {
+	if (11 <= monster_board[shape.i][shape.j] && monster_board[shape.i][shape.j] <= 14) {
 		score -= 10;
 		UpdateLives();
 	}
@@ -412,16 +423,20 @@ function RestartMonster() {
 	}
 	monster_1.i = 1;
 	monster_1.j = 1;
+	monster_board[monster_1.i][monster_1.j] = 11;
 	monster_2.i = 17;
 	monster_2.j = 19;
+	monster_board[monster_2.i][monster_2.j] = 12;
 	monster_3.i = 17;
 	monster_3.j = 1;
+	monster_board[monster_3.i][monster_3.j] = 13;
 	monster_4.i = 1;
 	monster_4.j = 19;
-	for (let k = 0; k < monster_list.length; k++){
-		m = monster_list[k];
-		monster_board[m.i][m.j] = 10;
-	}
+	monster_board[monster_4.i][monster_4.j] = 14;
+	// for (let k = 0; k < monster_list.length; k++){
+	// 	m = monster_list[k];
+	// 	monster_board[m.i][m.j] = 11+k;
+	// }
 }
 
 function UpdateMonsterPosition() {
@@ -438,7 +453,7 @@ function UpdateMonsterPosition() {
 		} else if (x==4) { //right
 			m.i++;
 		}
-		monster_board[m.i][m.j] = 10;
+		monster_board[m.i][m.j] = 11+k;
 	}
 	Draw();
 }
