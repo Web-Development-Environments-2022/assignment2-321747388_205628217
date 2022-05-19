@@ -530,21 +530,61 @@ function showScreen(x) {
 	document.getElementById(x).style.display = "block";
 }
 
+function setSettingsValues(){
+	document.getElementById('input_up_key').value = "UP arrow";
+	up_key = "38";
+	document.getElementById('input_down_key').value = "Down arrow";
+	down_key = "40";
+	document.getElementById('input_right_key').value = "Right arrow";
+	right_key = "39";
+	document.getElementById('input_left_key').value = "Left arrow";
+	left_key = "37";
+	
+	balls_amount = 50;
+	document.getElementById('input_balls_amount').value = balls_amount;
+	
+	color_5 = "#b6a7ea";
+	document.getElementById('input_color_5').value = color_5;
+
+	color_15 = "#8d71ea";
+	document.getElementById('input_color_15').value = color_15;
+
+	color_25 = "#6139e6";
+	document.getElementById('input_color_25').value = color_25;
+
+	time_left = 60;
+	document.getElementById('input_time').value = 	time_left;
+
+	monsters_amount = 2;
+	document.getElementById('input_monsters').value = monsters_amount;
+}
+
+
 function about() {
 	document.getElementById("about").showModal();
 }
 
+function closeAbout(){
+	document.getElementById("about").close();
+}
+
+
+
 function setUpKey(evevt) {
 	up_key = evevt.keyCode;
+	document.getElementById('input_up_key').value = evevt.key;
 }
 function setDownKey(evevt) {
-	down_key = evevt.keyCode; 
+	down_key = evevt.keyCode;
+	document.getElementById('input_down_key').value = evevt.key;
 }
 function setRightKey(evevt) {
 	right_key = evevt.keyCode; 
+	document.getElementById('input_right_key').value = evevt.key;
 }
 function setLeftKey(evevt) {
 	left_key = evevt.keyCode; 
+	document.getElementById('input_left_key').value = evevt.key;
 }
 function randomSettings(){
 	document.getElementById('input_up_key').value = "up arrow";
