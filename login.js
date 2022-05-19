@@ -8,6 +8,7 @@ function logIn(){
     // if user exists and password is correct
     var validUser = validateUser(userInputValues["loginUserName"], userInputValues["loginPassword"]);
     if (validUser == true){
+        setSettingsValues();
         showScreen("settings");
     }
     else{

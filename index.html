@@ -34,7 +34,7 @@
 			<a href='#' onclick="showScreen('welcome')">Welcome</a>
 			<a href='#' onclick="showScreen('signUp')">Sign Up</a>
 			<a href='#' onclick="showScreen('login')">Log In</a>
-			<a href='#' onclick="about()">About</a> 
+			<a href='#' onclick="about()">About</a>
 		</div>
 
 		<div id="welcome">
@@ -101,50 +101,74 @@
 		</div>
 
 		<div id="settings">
-			<form id="settingsForm">
-				settings
+			<div class="container" id="settingsContainer">
+				<h2>Settings</h2>
 				<br>
-				<label>Up</label>
-				<input id="input_up_key" type="text" onkeydown="setUpKey(event)" maxlength="1">
-				<br>
-				<label>Down</label>
-				<input id="input_down_key" type="text" onkeydown="setDownKey(event)" maxlength="1">
-				<br>
-				<label>Right</label>
-				<input id="input_right_key" type="text" onkeydown="setRightKey(event)" maxlength="1">
-				<br>
-				<label>Left</label>
-				<input id="input_left_key" type="text" onkeydown="setLeftKey(event)" maxlength="1">
-				<br>
-				<label>Balls amount</label>
-				<input id="input_balls_amount" type="number" min="50" max="90">
-				<br>
-				<label>5 points</label>
-				<input id="input_color_5" type="color">
-				<br>
-				<label>15 points</label>
-				<input id="input_color_15" type="color">
-				<br>
-				<label>25 points</label>
-				<input id="input_color_25" type="color">
-				<br>
-				<label>time</label>
-				<input id="input_time" type="number" min="60" max="3600">
-				<br>
-				<label>monsters</label>
-				<input id="input_monsters" type="number" min="1" max="4">
-				<br>
-				<input type="button" onclick="randomSettings()" value="Random">
-				<button type="submit">startGame</button>
-			</form>
+				<form id="settingsForm" autocomplete="off">
+					<input autocomplete="false" name="hidden" type="text" style="display:none;">
+					<label>Up</label>
+					<input id="input_up_key" type="text" onkeydown="setUpKey(event)" maxlength="1">
+					<br>
+					<br>
+					<label>Down</label>
+					<input id="input_down_key" type="text" onkeydown="setDownKey(event)" maxlength="1">
+					<br>
+					<br>
+					<label>Right</label>
+					<input id="input_right_key" type="text" onkeydown="setRightKey(event)" maxlength="1">
+					<br>
+					<br>
+					<label>Left</label>
+					<input id="input_left_key" type="text" onkeydown="setLeftKey(event)" maxlength="1">
+					<br>
+					<br>
+					<label>Balls amount</label>
+					<input id="input_balls_amount" type="number" min="50" max="90">
+					<br>
+					<br>
+					<label>5 points</label>
+					<input id="input_color_5" type="color">
+					<br>
+					<br>
+					<label>15 points</label>
+					<input id="input_color_15" type="color">
+					<br>
+					<br>
+					<label>25 points</label>
+					<input id="input_color_25" type="color">
+					<br>
+					<br>
+					<label>Game Time (secs)</label>
+					<input id="input_time" type="number" min="60" max="3600">
+					<br>
+					<br>
+					<label>Monsters</label>
+					<input id="input_monsters" type="number" min="1" max="4">
+					<br>
+					<br>
+					<input class="randomBtn" type="button" onclick="randomSettings()" value="Random">
+					<button class="submitBtn" type="submit">Start Game</button>
+				</form>
+			</div>
 		</div>
 
 		<dialog id="about" class="modal">
-			<form method="dialog">
-			  <button class="close">&times;</button>
-			  <p>About</p>
+			<span class="close" onclick="closeAbout()">&times;</span>
+			<p id="abt-head">About</p>
+			<form id="about-txt">
+				Created by Ariel Perelman & Diana Prochorov - 3rd year ISE students.<br>
+				We used the jQuery validation plug-in in order to validate the sign up form.<br>
+				We used some templates of css designs.<br>
+				Some of the challenges we faced were:<br>
+				- Learning and using Javascript extensively for the first time.<br>
+				- Understanding how to correctly use jQuery plug-ins.<br>
+				- Combining all different elements on the board game.<br>
+				We hope you enjoy!
 			</form>
+			<img id="about-heart" src="/media/about_heart.png" height="30" width="30">
 		</dialog>
+
+
 
 		<div id="game">
 			<div id="score">
@@ -166,14 +190,22 @@
 			<button onclick="new_game()">New Game</button>
 		</div>
 		<footer id="footer">
-			<img id="ghostGIF" src="https://66.media.tumblr.com/tumblr_mauaez2COG1rfjowdo1_500.gif" height="18" width="60" frameBorder="0"></iframe>
+			<img id="ghostGIF" src="https://66.media.tumblr.com/tumblr_mauaez2COG1rfjowdo1_500.gif" height="18" width="60" frameBorder="0">
 			<span id="contactInfo"> PACAMAN by 
 				<a href="mailto:arielper@bgu.ac.il">Ariel Perelman</a> & <a href="mailto:dianap@bgu.ac.il">Diana Prochorov</a>
 			</span>
 		</footer>
 	</body>
+	<script>
+		// Get the modal
+		var modal = document.getElementById('about');
+		
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+		  if (event.target == modal) {
+			document.getElementById("about").close();
+		  }
+		}
+	</script>
 </html>
 
-		</footer>
-	</body>
-</html>

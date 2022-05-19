@@ -186,7 +186,7 @@ footer a:hover{
 
 
 /* sign up & log in forms */
-#signUp, #login{
+#signUp, #login, #settings{
     align-items: center;
     text-align: center;
     height: inherit;
@@ -194,8 +194,8 @@ footer a:hover{
 }
 
 .container{
-    margin-top: 200px;
-    /* margin-bottom: 200px; */
+    margin-top: 100px;
+    margin-bottom: 25px;
     margin-right: 25%;
     margin-left: 25%;
     /* position: absolute; */
@@ -231,7 +231,7 @@ footer a:hover{
     }
 }
 
-#signUpForm, #logInForm{
+#signUpForm, #logInForm, #settingsForm{
     font-family: 'Orbitron', sans-serif;
     letter-spacing: 2px;
 }
@@ -253,7 +253,7 @@ input.error{
 
 
 /* CSS */
-.signupbtn, .resetbtn, .loginResetBtn, .logInBtn {
+.signupbtn, .resetbtn, .loginResetBtn, .logInBtn{
   background-color: #fc8b2e;
   border: 2px solid #111;
   border-radius: 30px;
@@ -274,20 +274,86 @@ input.error{
   -webkit-text-stroke: 1px black;
 }
 
-.signupbtn:hover, .resetbtn:hover, .loginResetBtn:hover, .logInBtn:hover {
+.randomBtn, .submitBtn{
+    background-color: #fc8b2e;
+    border: 2px solid #111;
+    border-radius: 30px;
+    box-shadow:  #111 4px 4px 0 0;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Press Start 2P', cursive;
+    /* font-weight: 600; */
+    font-size: 14px;
+    padding: 0 10px;
+    line-height: 30px;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    -webkit-text-stroke: 1px black;
+}
+
+.signupbtn:hover, .resetbtn:hover, .loginResetBtn:hover, .logInBtn:hover, .randomBtn:hover, .submitBtn:hover {
   background-color: #fff;
   color: #111;
 }
 
-.signupbtn:active, .resetbtn:active, .loginResetBtn:active, .logInBtn:active {
+.signupbtn:active, .resetbtn:active, .loginResetBtn:active, .logInBtn:active, .randomBtn:active, .submitBtn:active {
   box-shadow: #111 2px 2px 0 0;
   transform: translate(2px, 2px);
 }
 
 @media (min-width: 768px) {
-    .signupbtn, .resetbtn, .loginResetBtn, .logInBtn {
+    .signupbtn, .resetbtn, .loginResetBtn, .logInBtn, .randomBtn, .submitBtn {
     min-width: 120px;
     padding: 0 25px;
   }
 }
+
+#about{
+    overflow: auto;
+    align-items: center;
+    text-align: center;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.893);
+}
+
+
+#about-txt{
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-align: left;
+    font-family: 'Orbitron', sans-serif;
+}
+
+#abt-head{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 16;
+    animation: effect 2s linear infinite;
+    color: transparent;
+    /* border: black; */
+    -webkit-text-stroke: 1px black; /* width and color */
+}
+
+.close {
+    color: rgb(1, 1, 1);
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    background-color: transparent;
+    float: left;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: rgb(153, 149, 149);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+
+
+
 
