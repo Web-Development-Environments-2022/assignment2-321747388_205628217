@@ -1,0 +1,297 @@
+body{
+    background-color: rgb(60, 132, 184);
+    background-image: url(/media/back-logo.png);
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position-x: center;
+    background-position-y: center;
+    background-attachment: fixed;
+    display: block;
+    position:fixed;
+    padding:0;
+    margin:0;
+
+    top:0;
+    left:0;
+
+    width: 100%;
+    height: 100%;
+    
+    
+}
+#menu
+{
+	width: 100%;
+    left: 0;
+	height: 20px;
+	/* margin: 0;*/
+	padding-top: 7px; 
+	top: 0;
+	overflow: hidden;
+	background-color: #fc8b2e;
+	box-shadow: 0px 0 7px 0 rgba(77, 77, 77, 0.7);
+	/* z-index: 1; */
+	/* border-radius: 20px; */
+	border-bottom: 2px solid black;
+	position: fixed;
+    text-align: center;
+    align-items: center;
+   
+}
+
+#menu a{
+    font-family: 'Press Start 2P', cursive;
+    font-size: small;
+    text-decoration: none;
+    color: black;
+    /* margin: 4px; */
+    /* border: 2px dashed black;*/
+    padding-left: 4px; 
+    border-left:2px dashed black;
+}
+
+
+#menu a:hover{
+    color: white;
+    border-left:2px dashed white;
+
+}
+
+
+#logo{
+    top: 0;
+	left: 13px;;
+    display: inline;
+    vertical-align: top;
+	z-index: 999;
+	position: fixed;
+	margin-top: 2px;
+    /* padding-top: 5px; */
+    /* padding-bottom: 1px; */
+}
+
+#welcome{
+    align-items: center;
+    text-align: center;
+    padding:0;
+    margin:0;
+
+    top:0;
+    left:0;
+
+    width: 100%;
+    height: 100%;
+    /* place-items: center strech; */
+}
+
+
+/* CSS */
+.button-56 {
+  align-items: center;
+  background-color: #85cadd;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  cursor: pointer;
+  display: inline;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 16px;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 25px;
+  margin: 10px;
+  position:relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;  
+  margin-top: 30%;
+  /* margin-bottom: 30%; */
+  /* align-self: center; */
+}
+.button-56:after {
+  background-color: #111;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(6px, 4px);
+  transition: transform .2s ease-out;
+  z-index: -1;
+}
+
+.button-56:hover:after {
+  transform: translate(0, 0);
+  
+}
+
+.button-56:active {
+  background-color: #ffdeda;
+  outline: 0;
+}
+
+.button-56:hover {
+  outline: 0;
+  color: white;
+  background-color: #fcc92e;
+}
+
+@media (min-width: 768px) {
+  .button-56 {
+    padding: 0 40px;
+  }
+}
+
+/*footer*/
+footer{
+    position: fixed;
+	bottom: 0;
+    left: 0;
+	width: 100%;
+	height: 12px;
+	overflow: hidden;
+	background-color: #fc8b2e;
+	text-align:center;
+	/* border-radius: 20px 20px;
+	border: 3px solid black; */
+    border-top: black 2px solid;
+	/* list-style-type: none; */
+	z-index: 1;
+    font-family: 'Press Start 2P', cursive;
+    font-size: xx-small;
+    padding: 3px;
+}
+
+footer a{
+    text-decoration: none;
+    color: black;
+}
+
+footer a:hover{
+    color: white;
+}
+
+#ghostGIF{
+    position: fixed;
+    left:1%;
+}
+
+
+/* sign up & log in forms */
+#signUp, #login{
+    align-items: center;
+    text-align: center;
+    height: inherit;
+    overflow: auto;
+}
+
+.container{
+    margin-top: 200px;
+    /* margin-bottom: 200px; */
+    margin-right: 25%;
+    margin-left: 25%;
+    /* position: absolute; */
+    border: 2px solid black;
+    padding-bottom: 20px;
+    /* padding-left: 20%; */
+    border-radius: 20px;
+    background-color:#85cadd;
+    
+    /* height: 50%; */
+
+}
+
+.container h2{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 16;
+    animation: effect 2s linear infinite;
+    color: transparent;
+    /* border: black; */
+    -webkit-text-stroke: 1px black; /* width and color */
+
+}
+@keyframes effect {
+    0% {
+        background: black;
+        -webkit-background-clip: text;
+    }
+
+    100% {
+        background: linear-gradient(
+            #fcc92e ,#fc8b2e);
+        -webkit-background-clip: text;
+    }
+}
+
+#signUpForm, #logInForm{
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 2px;
+}
+
+input{
+    border-radius: 4px;
+    border-color: black;
+    border-width: 2px;
+}
+
+label.error{
+    display: block;
+    font-size: 12px;
+    color: red;
+}
+input.error{
+    border-color: red;
+}
+
+
+/* CSS */
+.signupbtn, .resetbtn, .loginResetBtn, .logInBtn {
+  background-color: #fc8b2e;
+  border: 2px solid #111;
+  border-radius: 30px;
+  box-shadow:  #111 4px 4px 0 0;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Press Start 2P', cursive;
+  /* font-weight: 600; */
+  font-size: 16px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  -webkit-text-stroke: 1px black;
+}
+
+.signupbtn:hover, .resetbtn:hover, .loginResetBtn:hover, .logInBtn:hover {
+  background-color: #fff;
+  color: #111;
+}
+
+.signupbtn:active, .resetbtn:active, .loginResetBtn:active, .logInBtn:active {
+  box-shadow: #111 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+    .signupbtn, .resetbtn, .loginResetBtn, .logInBtn {
+    min-width: 120px;
+    padding: 0 25px;
+  }
+}
+
+#about{
+   
+}
+
