@@ -186,7 +186,7 @@ footer a:hover{
 
 
 /* sign up & log in forms */
-#signUp, #login, #settings{
+#signUp, #login, #settings, #game{
     align-items: center;
     text-align: center;
     height: inherit;
@@ -231,7 +231,7 @@ footer a:hover{
     }
 }
 
-#signUpForm, #logInForm, #settingsForm{
+#signUpForm, #logInForm, #settingsForm, #showSettings{
     font-family: 'Orbitron', sans-serif;
     letter-spacing: 2px;
 }
@@ -250,10 +250,17 @@ label.error{
 input.error{
     border-color: red;
 }
-
+input:disabled {
+    border: none;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 2px;
+    background: none;
+    color: black;
+    width: 100px;
+  }
 
 /* CSS */
-.signupbtn, .resetbtn, .loginResetBtn, .logInBtn{
+.signupbtn, .resetbtn, .loginResetBtn, .logInBtn, .newGameBtn{
   background-color: #fc8b2e;
   border: 2px solid #111;
   border-radius: 30px;
@@ -295,18 +302,18 @@ input.error{
     -webkit-text-stroke: 1px black;
 }
 
-.signupbtn:hover, .resetbtn:hover, .loginResetBtn:hover, .logInBtn:hover, .randomBtn:hover, .submitBtn:hover {
+.signupbtn:hover, .resetbtn:hover, .loginResetBtn:hover, .logInBtn:hover, .randomBtn:hover, .submitBtn:hover, .newGameBtn:hover {
   background-color: #fff;
   color: #111;
 }
 
-.signupbtn:active, .resetbtn:active, .loginResetBtn:active, .logInBtn:active, .randomBtn:active, .submitBtn:active {
+.signupbtn:active, .resetbtn:active, .loginResetBtn:active, .logInBtn:active, .randomBtn:active, .submitBtn:active, .newGameBtn:active {
   box-shadow: #111 2px 2px 0 0;
   transform: translate(2px, 2px);
 }
 
 @media (min-width: 768px) {
-    .signupbtn, .resetbtn, .loginResetBtn, .logInBtn, .randomBtn, .submitBtn {
+    .signupbtn, .resetbtn, .loginResetBtn, .logInBtn, .randomBtn, .submitBtn, .newGameBtn {
     min-width: 120px;
     padding: 0 25px;
   }
@@ -394,6 +401,9 @@ input.error{
   }
 
 
+table {
+    background-color: rgb(60, 132, 184);
+}
 
 
 

@@ -168,27 +168,90 @@
 			<img id="about-heart" src="/media/about_heart.png" height="30" width="30">
 		</dialog>
 
-
-
 		<div id="game">
-			<div id="score">
-				<label for="lblScore">SCORE:</label>
-				<input id="lblScore" type="text" />
-			</div>
-
-			<div id="time">
-				<label for="lblTime">TIME:</label>
-				<input id="lblTime" type="text" />
-			</div>
-
-			<div id="lives">
-				<label for="lblLives">LIVES:</label>
-				<input id="lblLives" type="text" />
-			</div>
-
-			<canvas id="canvas" height="600" width="600"></canvas>
-			<button onclick="new_game()">New Game</button>
+			<table style="width:100%">
+				<tr style="text-align:left">
+					<td>
+						<br><br>
+						<label for="lblScore"><b>USER NAME:</b></label>
+						<input id="userN" type="text" disabled>
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td style="width:700px">
+						<br><br>
+						<div id="gameCanvas">
+							<canvas id="canvas" height="600" width="600"></canvas>
+						</div>
+					</td>
+					<td style="text-align:center">
+						<div id="showSettings" class="container">
+							<br>
+							<div id="score">
+								<label for="lblScore"><b>SCORE:</b></label>
+								<input id="lblScore" type="text" disabled/>
+							</div>
+							<br>
+							<div id="time">
+								<label for="lblTime"><b>TIME:</b></label>
+								<input id="lblTime" type="text" disabled/>
+							</div>
+							<br>
+							<div id="lives">
+								<label for="lblLives"><b>LIVES:</b></label>
+								<input id="lblLives" type="text" disabled/>
+							</div>
+							<br>
+							<label>Up:</label>
+							<input id="show_up" type="text" disabled>
+							<br><br>
+							<label>Down:</label>
+							<input id="show_down" type="text" disabled>
+							<br><br>
+							<label>Right:</label>
+							<input id="show_right" type="text" disabled>
+							<br><br>
+							<label>Left:</label>
+							<input id="show_left" type="text" disabled>
+							<br><br>
+							<label>Balls amount:</label>
+							<input id="show_balls_amount" type="text" disabled>
+							<br><br>
+							<label>5 points:</label>
+							<input id="show_color_5" type="color" disabled>
+							<br><br>
+							<label>15 points:</label>
+							<input id="show_color_15" type="color" disabled>
+							<br><br>
+							<label>25 points:</label>
+							<input id="show_color_25" type="color" disabled>
+							<br><br>
+							<label>Monsters:</label>
+							<input id="show_monsters" type="text" disabled>
+							<br><br>
+							<label>+10 sec:</label>
+							<img src="media\clock.png" height="20">
+							<br><br>
+							<label>+50 points:</label>
+							<img src="media\pizza50.png" height="20">
+							<br><br>
+							<label>+30 points:</label>
+							<img src="media\cupcake.png" height="20">
+							<br><br>
+							<audio id="myAudio" loop>
+								<source src="media\pacman_audio.mp3" type="audio/mpeg">
+							</audio>
+							<button id="mute" class="newGameBtn" onclick="mute()" type="button">mute / unmute</button>
+							<br><br>
+							<button class="newGameBtn" onclick="new_game()">New Game</button>
+						</div>
+					</td>
+				</tr>
+			</table>
+			
 		</div>
+
 		<footer id="footer">
 			<img id="ghostGIF" src="https://66.media.tumblr.com/tumblr_mauaez2COG1rfjowdo1_500.gif" height="18" width="60" frameBorder="0">
 			<span id="contactInfo"> PACAMAN by 
