@@ -567,13 +567,13 @@ function showScreen(x) {
 }
 
 function setSettingsValues(){
-	document.getElementById('input_up_key').value = "UP arrow";
+	document.getElementById('input_up_key').value = "ArrowUp";
 	up_key = "38";
-	document.getElementById('input_down_key').value = "Down arrow";
+	document.getElementById('input_down_key').value = "ArrowDown";
 	down_key = "40";
-	document.getElementById('input_right_key').value = "Right arrow";
+	document.getElementById('input_right_key').value = "ArrowRight";
 	right_key = "39";
-	document.getElementById('input_left_key').value = "Left arrow";
+	document.getElementById('input_left_key').value = "ArrowLeft";
 	left_key = "37";
 	
 	balls_amount = 50;
@@ -651,6 +651,8 @@ function randomSettings(){
 	document.getElementById('input_monsters').value = monsters_amount;
 }
 
+
+
 $(document).ready(function() {
 	$('#settingsForm').submit(function() {
 
@@ -666,6 +668,10 @@ $(document).ready(function() {
 		time_left = document.getElementById('input_time').value;
 		
 		monsters_amount = document.getElementById('input_monsters').value;
+
+		if (up_key == down_key || up_key == left_key || up_key == right_key || down_key == left_key || down_key == right_key || left_key == right_key) {
+			alert("Please choose different keys for each command.");
+		}
 		
 		//$('#error').html('My Error Message').show();
 		//alert('Text-field is empty.');

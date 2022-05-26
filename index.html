@@ -106,44 +106,44 @@
 				<br>
 				<form id="settingsForm" autocomplete="off">
 					<input autocomplete="false" name="hidden" type="text" style="display:none;">
-					<label>Up</label>
-					<input id="input_up_key" type="text" onkeydown="setUpKey(event)" maxlength="1">
+					<label>&#x2191;</label>
+					<input id="input_up_key" type="text" onkeydown="setUpKey(event)" maxlength="1" required>
 					<br>
 					<br>
-					<label>Down</label>
-					<input id="input_down_key" type="text" onkeydown="setDownKey(event)" maxlength="1">
+					<label>&#x2193;</label>
+					<input id="input_down_key" type="text" onkeydown="setDownKey(event)" maxlength="1" required>
 					<br>
 					<br>
-					<label>Right</label>
-					<input id="input_right_key" type="text" onkeydown="setRightKey(event)" maxlength="1">
+					<label>&#x2192;</label>
+					<input id="input_right_key" type="text" onkeydown="setRightKey(event)" maxlength="1" required>
 					<br>
 					<br>
-					<label>Left</label>
-					<input id="input_left_key" type="text" onkeydown="setLeftKey(event)" maxlength="1">
+					<label>&#x2190;</label>
+					<input id="input_left_key" type="text" onkeydown="setLeftKey(event)" maxlength="1" required>
 					<br>
 					<br>
 					<label>Balls amount</label>
-					<input id="input_balls_amount" type="number" min="50" max="90">
+					<input id="input_balls_amount" type="number" min="50" max="90" required>
 					<br>
 					<br>
 					<label>5 points</label>
-					<input id="input_color_5" type="color">
+					<input id="input_color_5" type="color" required>
 					<br>
 					<br>
 					<label>15 points</label>
-					<input id="input_color_15" type="color">
+					<input id="input_color_15" type="color" required>
 					<br>
 					<br>
 					<label>25 points</label>
-					<input id="input_color_25" type="color">
+					<input id="input_color_25" type="color" required>
 					<br>
 					<br>
 					<label>Game Time (secs)</label>
-					<input id="input_time" type="number" min="60" max="3600">
+					<input id="input_time" type="number" min="60" max="3600" required>
 					<br>
 					<br>
 					<label>Monsters</label>
-					<input id="input_monsters" type="number" min="1" max="4">
+					<input id="input_monsters" type="number" min="1" max="4" required>
 					<br>
 					<br>
 					<input class="randomBtn" type="button" onclick="randomSettings()" value="Random">
