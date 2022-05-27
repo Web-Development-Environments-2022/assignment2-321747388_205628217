@@ -1,6 +1,6 @@
 body{
     background-color: rgb(60, 132, 184);
-    background-image: url(/media/back-logo.png);
+    background-image: url(./media/back-logo.png);
     background-repeat: no-repeat;
     background-size: 70%;
     background-position-x: center;
@@ -405,5 +405,13 @@ table {
     background-color: rgb(60, 132, 184);
 }
 
+#active, #userN {
+  font-family: 'Press Start 2P', cursive;
+    font-size: 16;
+    animation: effect 2s linear infinite;
+    color: transparent;
+    /* border: black; */
+    -webkit-text-stroke: 1px black; /* width and color */
+}
 
 
