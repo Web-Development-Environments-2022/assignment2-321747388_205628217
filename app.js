@@ -70,6 +70,7 @@ const db = 	[
 ]
 
 $(document).ready(function() {
+	showScreen('welcome');
 	context = canvas.getContext("2d");
 	monster_1_img.src = 'media/blue_ghost.png';
 	monster_2_img.src = 'media/green_ghost.png';

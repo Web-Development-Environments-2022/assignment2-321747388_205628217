@@ -14,12 +14,12 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
-		<script>
+		<!--<script>
 			function loadWindow(){
 				showScreen('welcome');
 			}
 			window.addEventListener("load", loadWindow, false);
-		</script>
+		</script>-->
 	</head>
 
 	<body>
@@ -39,7 +39,7 @@
 
 		<div id="welcome">
 			<button class="button-56" onclick="showScreen('signUp')">Sign Up</button>
-			<button class="button-56" onclick="showScreen('login')">Log In</button>
+			<button href='#' class="button-56" onclick="showScreen('login')">Log In</button>
 		</div>
 
 		<div id="signUp">
@@ -68,7 +68,7 @@
 					<br>
 					<br>
 					<label for="birthday"><b>Date of Birth: </b></label>
-					<input type="date" id="birthday" name="trip-start" value="2000-01-01">
+					<input type="date" id="birthday" name="trip-start" value="2000-01-01" max="2022-01-01" min="1922-01-01">
 					<br>
 					<br>
 					<div class="clearfix">

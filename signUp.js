@@ -29,7 +29,7 @@ $(document).ready(function(){
 			},
 
 			birthday: {
-			required: true
+				required: true,
 			}
 		},
 
@@ -70,7 +70,7 @@ $(document).ready(function(){
 	// check if name contains letters only
 	$.validator.addMethod("lettersOnly", function (value) {
 		return /^[a-z]+$/i.test(value)	
-	})
+	}),
 	// check if the user name is available
 	$.validator.addMethod("freeUserName", function (value) {
 		for (let i = 0; i < db.length; i++){
@@ -94,4 +94,8 @@ function signUpUser(){
         password: userInputValues["password"]
     }
     db.push(newUser);
+	alert("You signed up successfully!");
+	var f = document.getElementById("signUpForm");
+	f.reset();
+	showScreen("welcome");
 }
