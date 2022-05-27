@@ -50,6 +50,7 @@ var moving_score_img = new Image();
 
 var medicine;
 var medicine_img = new Image();
+var medicine_n;
 
 var cupcake = new Object();
 var cupcake_img = new Image();
@@ -199,6 +200,7 @@ function Start() {
 	//Lives
 	var emptyCell = findRandomEmptyCell(board);
 	board[emptyCell[0]][emptyCell[1]] = 1;
+	medicine_n = 1;
 
 	//Clock
 	var emptyCell = findRandomEmptyCell(board);
@@ -401,6 +403,7 @@ function UpdateScore() {
 	}
 	if (board[shape.i][shape.j] == 1) {
 		lives_left++;
+		medicine_n--;
 	}
 	if (board[shape.i][shape.j] == 3) {
 		time_left += 10;
@@ -434,6 +437,11 @@ function UpdateLives() {
 	if (lives_left == 0){
 		game_over();
 	} else {
+		if(medicine_n < 1){
+			var emptyCell = findRandomEmptyCell(board);
+			board[emptyCell[0]][emptyCell[1]] = 1;
+			medicine_n = 1;
+		}
 		RestartGame();
 	}
 }
