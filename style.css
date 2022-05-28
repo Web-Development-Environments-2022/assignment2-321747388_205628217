@@ -10,33 +10,25 @@ body{
     position:fixed;
     padding:0;
     margin:0;
-
     top:0;
     left:0;
-
     width: 100%;
     height: 100%;
-    
-    
 }
-#menu
-{
+
+#menu {
 	width: 100%;
     left: 0;
 	height: 20px;
-	/* margin: 0;*/
 	padding-top: 7px; 
 	top: 0;
 	overflow: hidden;
 	background-color: #fc8b2e;
 	box-shadow: 0px 0 7px 0 rgba(77, 77, 77, 0.7);
-	/* z-index: 1; */
-	/* border-radius: 20px; */
 	border-bottom: 2px solid black;
 	position: fixed;
-    text-align: center;
-    align-items: center;
-   
+  text-align: center;
+  align-items: center;
 }
 
 #menu a{
@@ -44,19 +36,14 @@ body{
     font-size: small;
     text-decoration: none;
     color: black;
-    /* margin: 4px; */
-    /* border: 2px dashed black;*/
     padding-left: 4px; 
     border-left:2px dashed black;
 }
 
-
 #menu a:hover{
     color: white;
     border-left:2px dashed white;
-
 }
-
 
 #logo{
     top: 0;
@@ -66,8 +53,6 @@ body{
 	z-index: 999;
 	position: fixed;
 	margin-top: 2px;
-    /* padding-top: 5px; */
-    /* padding-bottom: 1px; */
 }
 
 #welcome{
@@ -75,17 +60,12 @@ body{
     text-align: center;
     padding:0;
     margin:0;
-
     top:0;
     left:0;
-
     width: 100%;
     height: 100%;
-    /* place-items: center strech; */
 }
 
-
-/* CSS */
 .button-56 {
   align-items: center;
   background-color: #85cadd;
@@ -110,9 +90,8 @@ body{
   -webkit-user-select: none;
   touch-action: manipulation;  
   margin-top: 30%;
-  /* margin-bottom: 30%; */
-  /* align-self: center; */
 }
+
 .button-56:after {
   background-color: #111;
   border-radius: 8px;
@@ -130,7 +109,6 @@ body{
 
 .button-56:hover:after {
   transform: translate(0, 0);
-  
 }
 
 .button-56:active {
@@ -152,38 +130,34 @@ body{
 
 /*footer*/
 footer{
-    position: fixed;
+  position: fixed;
 	bottom: 0;
-    left: 0;
+  left: 0;
 	width: 100%;
 	height: 12px;
 	overflow: hidden;
 	background-color: #fc8b2e;
 	text-align:center;
-	/* border-radius: 20px 20px;
-	border: 3px solid black; */
-    border-top: black 2px solid;
-	/* list-style-type: none; */
+  border-top: black 2px solid;
 	z-index: 1;
-    font-family: 'Press Start 2P', cursive;
-    font-size: xx-small;
-    padding: 3px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: xx-small;
+  padding: 3px;
 }
 
 footer a{
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 
 footer a:hover{
-    color: white;
+  color: white;
 }
 
 #ghostGIF{
-    position: fixed;
-    left:1%;
+  position: fixed;
+  left:1%;
 }
-
 
 /* sign up & log in forms */
 #signUp, #login, #settings, #game{
@@ -198,15 +172,10 @@ footer a:hover{
     margin-bottom: 25px;
     margin-right: 25%;
     margin-left: 25%;
-    /* position: absolute; */
     border: 2px solid black;
     padding-bottom: 20px;
-    /* padding-left: 20%; */
     border-radius: 20px;
     background-color:#85cadd;
-    
-    /* height: 50%; */
-
 }
 
 .container h2{
@@ -214,10 +183,10 @@ footer a:hover{
     font-size: 16;
     animation: effect 2s linear infinite;
     color: transparent;
-    /* border: black; */
-    -webkit-text-stroke: 1px black; /* width and color */
+    -webkit-text-stroke: 1px black;
 
 }
+
 @keyframes effect {
     0% {
         background: black;
@@ -247,9 +216,11 @@ label.error{
     font-size: 12px;
     color: red;
 }
+
 input.error{
     border-color: red;
 }
+
 input:disabled {
     border: none;
     font-family: 'Orbitron', sans-serif;
@@ -257,7 +228,7 @@ input:disabled {
     background: none;
     color: black;
     width: 100px;
-  }
+}
 
 /* CSS */
 .signupbtn, .resetbtn, .loginResetBtn, .logInBtn, .newGameBtn{
@@ -269,7 +240,6 @@ input:disabled {
   cursor: pointer;
   display: inline-block;
   font-family: 'Press Start 2P', cursive;
-  /* font-weight: 600; */
   font-size: 16px;
   padding: 0 18px;
   line-height: 50px;
@@ -290,7 +260,6 @@ input:disabled {
     cursor: pointer;
     display: inline-block;
     font-family: 'Press Start 2P', cursive;
-    /* font-weight: 600; */
     font-size: 14px;
     padding: 0 10px;
     line-height: 30px;
@@ -340,8 +309,7 @@ input:disabled {
     font-size: 16;
     animation: effect 2s linear infinite;
     color: transparent;
-    /* border: black; */
-    -webkit-text-stroke: 1px black; /* width and color */
+    -webkit-text-stroke: 1px black;
 }
 
 .close {
@@ -360,47 +328,6 @@ input:disabled {
     cursor: pointer;
   }
 
-
-  .slidecontainer {
-    width: 100%; /* Width of the outside container */
-  }
-  
-  /* The slider itself */
-  .slider {
-    -webkit-appearance: none;  /* Override default CSS styles */
-    appearance: none;
-    width: 100%; /* Full-width */
-    height: 25px; /* Specified height */
-    background: #d3d3d3; /* Grey background */
-    outline: none; /* Remove outline */
-    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-    transition: opacity .2s;
-  }
-  
-  /* Mouse-over effects */
-  .slider:hover {
-    opacity: 1; /* Fully shown on mouse-over */
-  }
-  
-  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-  .slider::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
-    appearance: none;
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: #04AA6D; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-  }
-  
-  .slider::-moz-range-thumb {
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: #04AA6D; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-  }
-
-
 table {
     background-color: rgb(60, 132, 184);
 }
@@ -410,8 +337,5 @@ table {
     font-size: 16;
     animation: effect 2s linear infinite;
     color: transparent;
-    /* border: black; */
     -webkit-text-stroke: 1px black; /* width and color */
 }
-
-

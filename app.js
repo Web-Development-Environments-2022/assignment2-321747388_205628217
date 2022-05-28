@@ -6,13 +6,13 @@ var pac_color;
 var start_time;
 var time_elapsed;
 var interval;
-
+//game keys
 var key_pressed=4;
 var up_key;
 var down_key;
 var right_key;
 var left_key;
-
+//game balls
 var balls_amount;
 var amount_5;
 var amount_15;
@@ -20,7 +20,7 @@ var amount_25;
 var color_5;
 var color_15;
 var color_25;
-
+//setting
 var time_left;
 var lives_left;
 
@@ -29,7 +29,7 @@ var width;
 
 var time_interval;
 var clock_img = new Image();
-
+//monsters
 var monsters_amount;
 var monster_1 = new Object();
 var monster_2 = new Object();
@@ -43,15 +43,15 @@ var monster_board;
 var monster_list;
 var monster_interval;
 var monster_move;
-
+//pizza vars
 var moving_score = new Object();
 var moving_score_interval;
 var moving_score_img = new Image();
-
+//heart vars
 var medicine;
 var medicine_img = new Image();
 var medicine_n;
-
+//cupcake vars
 var cupcake = new Object();
 var cupcake_img = new Image();
 var cupcake_interval;
@@ -83,8 +83,58 @@ $(document).ready(function() {
 	cupcake_img.src = 'media/cupcake.png';
 });
 
+function showScreen(x) {
+	if (game == true){
+		clear_interval();
+	}
+	document.getElementById("welcome").style.display = "none";
+	document.getElementById("signUp").style.display = "none";
+	document.getElementById("login").style.display = "none";
+	document.getElementById("settings").style.display = "none";
+	document.getElementById("game").style.display = "none";
+
+	document.getElementById(x).style.display = "block";
+}
+
+//log in
+function logIn(){
+    var $userInput = $('#logInForm :input');
+    var userInputValues = {};
+    $userInput.each(function() {
+            userInputValues[this.name] = $(this).val();
+    });
+    // if user exists and password is correct
+    var validUser = validateUser(userInputValues["loginUserName"], userInputValues["loginPassword"]);
+    if (validUser == true){
+        user_name = $userInput.val();
+		setSettingsValues();
+        showScreen("settings");
+    }
+    else{
+        alert("Incorrect user name or password.")
+    }
+	
+}
+
+function validateUser(userName, password){
+    for (let i = 0; i < db.length; i++){
+        if (userName === db[i].userName && password === db[i].password){
+            return true;            
+        }
+    }
+    return false;
+}
+
+function about() {
+	document.getElementById("about").showModal();
+}
+
+function closeAbout(){
+	document.getElementById("about").close();
+}
+
 function Start() {
-	//user_name = document.getElementById("loginUserName").value;
+	//set game
 	game = true;
 	show_settings();
 	music = false;
@@ -109,7 +159,9 @@ function Start() {
 			[4,0,4,0,4,0,4,4,4,0,4,4,4,0,4,0,0,0,4,0,4],
 			[4,0,0,0,0,0,4,4,4,0,4,4,4,0,0,0,4,0,0,0,4],
 			[4,4,4,4,4,4,4,4,4,0,4,4,4,4,4,4,4,4,4,4,4],];
+	
 	score = 0;
+	lives_left = 5;
 	pac_color = "yellow";
 	var food_remain_5 = amount_5;
 	var food_remain_15 = amount_15;
@@ -117,9 +169,9 @@ function Start() {
 	start_time = new Date();
 	height = 600 / board.length;
 	width = 600 / board[0].length;
-	lives_left = 5;
-
 	cupcake.b = false;
+
+	//monster
 	monster_board = [[4,4,4,4,4,4,4,4,4,0,4,4,4,4,4,4,4,4,4,4,4],
 					[4,0,0,0,0,0,4,4,4,0,4,4,4,0,0,0,4,0,0,0,4],
 					[4,0,4,0,4,0,4,4,4,0,4,4,4,0,4,0,0,0,4,0,4],
@@ -221,6 +273,8 @@ function Start() {
 		},
 		false
 	);
+
+	//intervals
 	interval = setInterval(UpdatePosition, 180);
 	time_interval = setInterval(UpdateTime, 1000);
 	monster_interval = setInterval(UpdateMonsterPosition,750);
@@ -271,23 +325,23 @@ function Draw() {
 				DrawPacman(center);
 			} else if (board[i][j] == 5) { //ball 5 points
 				context.beginPath();
-				context.arc(center.x, center.y, width/4, 0, 2 * Math.PI); // circle
+				context.arc(center.x, center.y, width/4, 0, 2 * Math.PI);
 				context.fillStyle = color_5;
 				context.fill();
 			} else if (board[i][j] == 15) { //ball 15 points
 				context.beginPath();
-				context.arc(center.x, center.y, width/4, 0, 2 * Math.PI); // circle
+				context.arc(center.x, center.y, width/4, 0, 2 * Math.PI);
 				context.fillStyle = color_15;
 				context.fill();
 			} else if (board[i][j] == 25) { //ball 25 points
 				context.beginPath();
-				context.arc(center.x, center.y, width/4, 0, 2 * Math.PI); // circle
+				context.arc(center.x, center.y, width/4, 0, 2 * Math.PI);
 				context.fillStyle = color_25;
 				context.fill();
 			} else if (board[i][j] == 4) { //wall
 				context.beginPath();
 				context.rect(i*height, j*width, height, width);
-				context.fillStyle = "#85cadd";//"grey";
+				context.fillStyle = "#85cadd";
 				context.fill();
 			} else if (board[i][j] == 1) { // lives
 				context.drawImage(medicine_img,i*height, j*width, height, width);
@@ -315,42 +369,42 @@ function Draw() {
 function DrawPacman(center) {
 	if (key_pressed==1){ //up
 		context.beginPath();
-		context.arc(center.x, center.y, width/2, 1.65 * Math.PI, 1.35 * Math.PI); // half circle
+		context.arc(center.x, center.y, width/2, 1.65 * Math.PI, 1.35 * Math.PI);
 		context.lineTo(center.x, center.y);
 		context.fillStyle = pac_color;
 		context.fill();
 		context.beginPath();
-		context.arc(center.x + (width/4), center.y, width/12, 0, 2 * Math.PI); // circle
+		context.arc(center.x + (width/4), center.y, width/12, 0, 2 * Math.PI);
 		context.fillStyle = "black";
 		context.fill();
 	}else if (key_pressed==2){ //down
 		context.beginPath();
-		context.arc(center.x, center.y, width/2, 0.65 * Math.PI, 0.35 * Math.PI); // half circle
+		context.arc(center.x, center.y, width/2, 0.65 * Math.PI, 0.35 * Math.PI);
 		context.lineTo(center.x, center.y);
 		context.fillStyle = pac_color;
 		context.fill();
 		context.beginPath();
-		context.arc(center.x + (width/4), center.y - (width/12), width/12, 0, 2 * Math.PI); // circle
+		context.arc(center.x + (width/4), center.y - (width/12), width/12, 0, 2 * Math.PI);
 		context.fillStyle = "black";
 		context.fill();
 	}else if (key_pressed==3){ //left
 		context.beginPath();
-		context.arc(center.x, center.y, width/2, 1.2 * Math.PI, 0.85 * Math.PI); // half circle
+		context.arc(center.x, center.y, width/2, 1.2 * Math.PI, 0.85 * Math.PI);
 		context.lineTo(center.x, center.y);
 		context.fillStyle = pac_color;
 		context.fill();
 		context.beginPath();
-		context.arc(center.x + (width/12), center.y - (width/4), width/12, 0, 2 * Math.PI); // circle
+		context.arc(center.x + (width/12), center.y - (width/4), width/12, 0, 2 * Math.PI);
 		context.fillStyle = "black";
 		context.fill();
 	}else if (key_pressed==4){ //right
 		context.beginPath();
-		context.arc(center.x, center.y, width/2, 0.15 * Math.PI, 1.85 * Math.PI); // half circle
+		context.arc(center.x, center.y, width/2, 0.15 * Math.PI, 1.85 * Math.PI);
 		context.lineTo(center.x, center.y);
 		context.fillStyle = pac_color;
 		context.fill();
 		context.beginPath();
-		context.arc(center.x + (width/12), center.y - (width/4), width/12, 0, 2 * Math.PI); // circle
+		context.arc(center.x + (width/12), center.y - (width/4), width/12, 0, 2 * Math.PI);
 		context.fillStyle = "black";
 		context.fill();
 	}
@@ -568,17 +622,41 @@ function UpdateCupcake() {
 	}
 }
 
-function showScreen(x) {
-	if (game == true){
-		clear_interval();
+function game_over() {
+	clear_interval();
+	var txt;
+	if (lives_left == 0){
+		txt = "Loser!\nWould you like to start a new game?"
+	} else {
+		if (score < 100){
+			txt = 'You are better than ' + score + ' points!\nWould you like to start a new game?';
+		}else{
+			txt = "Winner!!!\nWould you like to start a new game?"
+		}
 	}
-	document.getElementById("welcome").style.display = "none";
-	document.getElementById("signUp").style.display = "none";
-	document.getElementById("login").style.display = "none";
-	document.getElementById("settings").style.display = "none";
-	document.getElementById("game").style.display = "none";
+	if (confirm(txt)){
+		showScreen('settings');
+	} else {
+		showScreen('welcome');
+	}
+}
 
-	document.getElementById(x).style.display = "block";
+function clear_interval() {
+	clearInterval(interval);
+	clearInterval(time_interval);
+	clearInterval(monster_interval);
+	clearInterval(moving_score_interval);
+	clearInterval(cupcake_interval);
+
+	music = true;
+	mute();
+	game=false;
+}
+function new_game() {
+	if (confirm("Would you like to start a new game?")){
+		clear_interval();
+		showScreen('settings');
+	}
 }
 
 function setSettingsValues(){
@@ -608,13 +686,6 @@ function setSettingsValues(){
 
 	monsters_amount = 2;
 	document.getElementById('input_monsters').value = monsters_amount;
-}
-
-function about() {
-	document.getElementById("about").showModal();
-}
-function closeAbout(){
-	document.getElementById("about").close();
 }
 
 function setUpKey(evevt) {
@@ -663,8 +734,6 @@ function randomSettings(){
 	document.getElementById('input_monsters').value = monsters_amount;
 }
 
-
-
 $(document).ready(function() {
 	$('#settingsForm').submit(function() {
 
@@ -690,41 +759,6 @@ $(document).ready(function() {
 	})
 })
 
-function game_over() {
-	clear_interval();
-	var txt;
-	if (lives_left == 0){
-		txt = "Loser!\nWould you like to start a new game?"
-	} else { //time_left==0 || balls_amount==0
-		if (score < 100){
-			txt = 'You are better than ' + score + ' points!\nWould you like to start a new game?';
-		}else{
-			txt = "Winner!!!\nWould you like to start a new game?"
-		}
-	}
-	if (confirm(txt)){
-		showScreen('settings');
-	} else {
-		showScreen('welcome');
-	}
-}
-function clear_interval() {
-	clearInterval(interval);
-	clearInterval(time_interval);
-	clearInterval(monster_interval);
-	clearInterval(moving_score_interval);
-	clearInterval(cupcake_interval);
-
-	music = true;
-	mute();
-	game=false;
-}
-function new_game() {
-	if (confirm("Would you like to start a new game?")){
-		clear_interval();
-		showScreen('settings');
-	}
-}
 function show_settings() {
 	document.getElementById("show_up").value = document.getElementById('input_up_key').value;
 	document.getElementById("show_down").value = document.getElementById('input_down_key').value;
@@ -753,33 +787,4 @@ function mute() {
 		music = false;
 		m.textContent = "unmute";
 	}
-}
-
-//log in
-function logIn(){
-    var $userInput = $('#logInForm :input');
-    var userInputValues = {};
-    $userInput.each(function() {
-            userInputValues[this.name] = $(this).val();
-    });
-    // if user exists and password is correct
-    var validUser = validateUser(userInputValues["loginUserName"], userInputValues["loginPassword"]);
-    if (validUser == true){
-        user_name = $userInput.val();
-		setSettingsValues();
-        showScreen("settings");
-    }
-    else{
-        alert("Incorrect user name or password.")
-    }
-	
-}
-
-function validateUser(userName, password){
-    for (let i = 0; i < db.length; i++){
-        if (userName === db[i].userName && password === db[i].password){
-            return true;            
-        }
-    }
-    return false;
 }
